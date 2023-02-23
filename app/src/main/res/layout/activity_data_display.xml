@@ -1,0 +1,165 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/parentlayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/smokyWhite"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/appbarlay"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:layout_height="wrap_content"
+        android:background="@color/smokyWhite">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:id="@+id/collapsingtl"
+            android:fitsSystemWindows="true"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/colorPrimaryDark"
+            app:collapsedTitleTextColor="@color/black"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            android:fontFamily="@font/montserratlight"
+            app:title="Pick a Car">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/custom_app_bar_background"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    android:fontFamily="@font/montserratlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:text="Showing Results for"
+                    android:id="@+id/titletexttv"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                     />
+
+                <TextView
+                    android:fontFamily="@font/montserratmedium"
+                    android:id="@+id/datetext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Titile Ig"
+                    android:textColor="@color/lightText"
+                    android:textSize="20sp"
+                    />
+                <TextView
+                    android:fontFamily="@font/montserratmedium"
+                    android:id="@+id/timetext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Titile Ig"
+                    android:textColor="@color/lightText"
+                    android:textSize="20sp"
+                    />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                app:layout_collapseMode="pin"
+                android:id="@+id/toolbarx"
+                app:popupTheme="@style/Widget.AppCompat.PopupMenu.Overflow"
+                android:layout_height="?attr/actionBarSize"
+
+                />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <!--    will be implementing recycler view insted of nested scroll view-->
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedscrll"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:layout_width="match_parent"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:id="@+id/nav_host_fragment2"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph2"
+            android:layout_height="match_parent"
+            />
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/fixedbtmpay"
+        android:visibility="visible"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="60dp">
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            app:dividerColor="@color/black"
+            android:layout_height="wrap_content"
+            />
+
+        <LinearLayout
+            android:background="#000000"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_height="match_parent" >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1.5"
+                android:hint="Pay Using"
+                app:startIconDrawable="@drawable/ic_baseline_calendar_month_24"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_height="match_parent">
+
+                <AutoCompleteTextView
+                    android:id="@+id/payusingbtn"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_weight="0.5"
+                android:layout_margin="2dp"
+                android:layout_gravity="center"
+                android:text="Proceed to Pay"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

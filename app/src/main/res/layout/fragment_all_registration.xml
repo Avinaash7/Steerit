@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@color/smokyWhite"
+    android:backgroundTint="@color/smokyWhite"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AllRegistrationFragment">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:id="@+id/animation_view"
+        app:lottie_rawRes="@raw/car1"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+    <LinearLayout
+        android:layout_marginTop="-180dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            app:cardElevation="5dp"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="5dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:text="Continue to Steer a Car"
+                    android:textSize="30sp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_height="wrap_content"/>
+
+
+                <LinearLayout
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:startIconDrawable="@drawable/ic_baseline_phone_24"
+                        app:counterMaxLength="10"
+                        app:counterEnabled="true"
+                        android:layout_height="wrap_content">
+
+                        <AutoCompleteTextView
+                            android:layout_margin="5dp"
+                            android:inputType="number"
+                            android:imeOptions="actionDone"
+                            android:id="@+id/numberatv"
+                            android:maxLength="10"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Mobile Number" />
+
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="200dp"
+                    app:cornerRadius="5dp"
+                    android:id="@+id/arfcontinuebtn"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:text="Continue"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:text="Sign in Using"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:id="@+id/googlebtn"
+                android:src="@drawable/google"
+                android:layout_height="50dp"/>
+
+            <com.facebook.login.widget.LoginButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/facebookloginbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

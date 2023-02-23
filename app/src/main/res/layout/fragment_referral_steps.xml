@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReferralStepsFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_margin="8dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserratregular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="&#8226; You will receive 100 Steer credits worth 100 Rupees on every successful referral" />
+            <TextView
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/montserratregular"
+                android:layout_width="match_parent"
+                android:text="&#8226; You can redeem your credits in the booking page"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserratregular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="&#8226; A successful referral is when your referee installs the app from your referral link and successfully sign's in" />
+
+            <TextView
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/montserratregular"
+                android:layout_width="match_parent"
+                android:text="&#8226; 1 Steer credit = 1 Rupee"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/montserratregular"
+                android:layout_width="match_parent"
+                android:text="&#8226; A referral link can be used unlimited number of times"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/montserratregular"
+                android:layout_width="match_parent"
+                android:text="&#8226; Steerit reserves the right to suspend an account and/or revoke all referral benefits at any time if we feel they were earned inappropriately"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+    <!-- TODO: Update blank fragment layout -->
+
+</LinearLayout>

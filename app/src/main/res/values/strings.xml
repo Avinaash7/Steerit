@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Steerit</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description">Hello blank fragment fbefvj </string>
+    <string name="date_display">Date: %1$s</string>
+    <string name="time_display">Time: %1$s - %2$s</string>
+
+    <string name="text_with_bullet">Text with a \u2022</string>
+
+
+    <string-array name="Locations">
+        <item>VIT Vellore</item>
+        <item>Chennai</item>
+    </string-array>
+</resources>

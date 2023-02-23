@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.rent.driveit.MainScreen"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_home_to_dataDisplayActivity"
+            app:destination="@id/dataDisplayActivity" />
+        <action
+            android:id="@+id/action_home_to_loginActivity"
+            app:destination="@id/loginActivity" />
+        <action
+            android:id="@+id/action_home_to_referEarnFragment"
+            app:destination="@id/referEarnFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/dataDisplayActivity"
+        android:name="com.rent.driveit.DataDisplayActivity"
+        android:label="activity_data_display"
+        tools:layout="@layout/activity_data_display" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.rent.driveit.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/referEarnFragment"
+        android:name="com.rent.driveit.ReferEarnFragment"
+        android:label="fragment_refer_earn"
+        tools:layout="@layout/fragment_refer_earn" >
+        <action
+            android:id="@+id/action_referEarnFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+
+</navigation>

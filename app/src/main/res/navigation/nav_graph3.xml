@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph2"
+    app:startDestination="@id/allRegistrationFragment">
+    <fragment
+        android:id="@+id/allRegistrationFragment"
+        android:name="com.rent.driveit.AllRegistrationFragment"
+        android:label="fragment_all_registration"
+        tools:layout="@layout/fragment_all_registration" >
+        <action
+            android:id="@+id/action_allRegistrationFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_allRegistrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_allRegistrationFragment_to_newuserBottomSheetFragment"
+            app:destination="@id/newuserBottomSheetFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/newuserBottomSheetFragment"
+        android:name="com.rent.driveit.NewuserBottomSheetFragment"
+        android:label="fragment_newuser_bottom_sheet"
+        tools:layout="@layout/fragment_newuser_bottom_sheet" >
+        <action
+            android:id="@+id/action_newuserBottomSheetFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.rent.driveit.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.rent.driveit.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.rent.driveit.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+</navigation>

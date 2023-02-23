@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph2"
+    app:startDestination="@id/carsDisplayFragment">
+
+    <fragment
+        android:id="@+id/carsDisplayFragment"
+        android:name="com.rent.driveit.CarsDisplayFragment"
+        android:label="fragment_cars_display"
+        tools:layout="@layout/fragment_cars_display" >
+        <action
+            android:id="@+id/action_carsDisplayFragment_to_bookingDetails"
+            app:destination="@id/bookingDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingDetails"
+        android:name="com.rent.driveit.BookingDetails"
+        android:label="fragment_booking_details"
+        tools:layout="@layout/fragment_booking_details" >
+        <action
+            android:id="@+id/action_bookingDetails_to_paymentsOption"
+            app:destination="@id/paymentsOption" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentsOption"
+        android:name="com.rent.driveit.PaymentsOption"
+        android:label="fragment_payments_option"
+        tools:layout="@layout/fragment_payments_option" />
+</navigation>

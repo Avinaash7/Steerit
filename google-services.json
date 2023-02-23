@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "754321194666",
+    "firebase_url": "https://web3job-666ca-default-rtdb.firebaseio.com",
+    "project_id": "web3job-666ca",
+    "storage_bucket": "web3job-666ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754321194666:android:9be004271ef7c447201ad3",
+        "android_client_info": {
+          "package_name": "com.rent.driveit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754321194666-rgg3h08p309q40qihn31s69pcqo5ms1a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rent.driveit",
+            "certificate_hash": "87bcc0da2b6a2372dde2ef5395a5e8ba0582980b"
+          }
+        },
+        {
+          "client_id": "754321194666-ac5v2hs35035furtg6h817n8bks18v0r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNPQGQMJU8CGeFiUsJ6FEWdISwqXINV2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754321194666-2q467fb806rv2u22vrggkifke7u46dbk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
