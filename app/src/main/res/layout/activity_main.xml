@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
-            app:title="VDrive"
+            app:title="Steerit"
             app:titleMarginStart="40dp"
             />
 

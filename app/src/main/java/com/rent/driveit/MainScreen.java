@@ -37,6 +37,7 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.TimeZone;
 
 /**
@@ -345,7 +346,7 @@ public class MainScreen extends Fragment {
 
                 sharedPreferences = requireContext().getSharedPreferences("MySharedPref", MODE_PRIVATE);
 
-                if(materialdate.getSelection().first == null){
+                if(Objects.requireNonNull(materialdate.getSelection()).first == null){
                     Toast.makeText(getContext(),"Pick dates before proceeding",Toast.LENGTH_LONG).show();
                     Log.i("Error","Null");
                 }else{

@@ -42,6 +42,7 @@ import com.google.android.gms.wallet.PaymentDataRequest;
 import com.google.android.gms.wallet.PaymentsClient;
 import com.google.android.gms.wallet.Wallet;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.button.MaterialButton;
 
 import com.stripe.android.PaymentConfiguration;
@@ -66,6 +67,7 @@ public class PaymentsOption extends Fragment {
     PaymentSheet paymentSheet;
     String paymentIntentClientSecret, amount;
     PaymentSheet.CustomerConfiguration customerConfig;
+    CollapsingToolbarLayout ctl;
 
     private static JSONObject baseConfigurationJson() throws JSONException {
         return new JSONObject()
@@ -123,6 +125,8 @@ public class PaymentsOption extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
 
     }
 
@@ -189,6 +193,12 @@ public class PaymentsOption extends Fragment {
         AppBarLayout abl = requireActivity().findViewById(R.id.appbarlay);
         NestedScrollView nsv = requireActivity().findViewById(R.id.nestedscrll);
         stripeButton = rootView.findViewById(R.id.stripeButton);
+        View collapsingview = requireActivity().findViewById(R.id.collapsingtl);
+
+        if( collapsingview instanceof CollapsingToolbarLayout) {
+            ctl = (CollapsingToolbarLayout) collapsingview;
+            ctl.setTitle("Choose Payment Method");
+        }
 
         MaterialButton upiButton = rootView.findViewById(R.id.upibtn);
         paymentSheet = new PaymentSheet(this, this::onPaymentSheetResult);

@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +30,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginFragment extends Fragment {
 
     private FirebaseAuth mAuth;
+    NavController navController;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,6 +85,12 @@ public class LoginFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_login, container, false);
 
+        NavHostFragment navHostFragment =
+                (NavHostFragment) requireActivity().getSupportFragmentManager()
+                        .findFragmentById(R.id.activityloginnavhost);
+        assert navHostFragment != null;
+        navController = navHostFragment.getNavController();
+
         mAuth = FirebaseAuth.getInstance();
         ForgotPasswordBottomSheetFragment forgotpassdialog = ForgotPasswordBottomSheetFragment.newInstance();
 
@@ -110,6 +119,7 @@ public class LoginFragment extends Fragment {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d("TAG", "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    navController.navigate(R.id.action_loginFragment_to_mainActivity);
 
                                 } else {
                                     // If sign in fails, display a message to the user.

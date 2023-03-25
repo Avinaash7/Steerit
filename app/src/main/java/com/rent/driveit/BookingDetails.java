@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.MenuProvider;
+import androidx.core.view.ViewCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -103,7 +105,7 @@ public class BookingDetails extends Fragment {
         }
 
 
-        View collapsingview = requireActivity().findViewById(R.id.collapsingtl);
+
 
 
        // NestedScrollView nsv = requireActivity().findViewById(R.id.nestedscrll);
@@ -117,10 +119,7 @@ public class BookingDetails extends Fragment {
 
 
 
-        if( collapsingview instanceof CollapsingToolbarLayout) {
-            ctl = (CollapsingToolbarLayout) collapsingview;
-            ctl.setTitle("Car Details");
-        }
+
 
     }
 
@@ -131,28 +130,33 @@ public class BookingDetails extends Fragment {
         View rootView =  inflater.inflate(R.layout.fragment_booking_details, container, false);
 
         LinearLayout btmpay = requireActivity().findViewById(R.id.fixedbtmpay);
+        View collapsingview = requireActivity().findViewById(R.id.collapsingtl);
+        AppBarLayout appbarlay = requireActivity().findViewById(R.id.appbarlay);
+        NestedScrollView nsv = requireActivity().findViewById(R.id.nestedscrll);
+        ImageView image = rootView.findViewById(R.id.carimagebd);
+        TextView sitelocation = rootView.findViewById(R.id.locationtv);
+        ImageView mapicon = rootView.findViewById(R.id.mapicon);
+        MaterialCheckBox creditbox = rootView.findViewById(R.id.creditcheckbox);
+        TextView securitystrike = rootView.findViewById(R.id.securitydetv);
+
+        if( collapsingview instanceof CollapsingToolbarLayout) {
+            ctl = (CollapsingToolbarLayout) collapsingview;
+            ctl.setTitle(carname);
+        }
+
         btmpay.setVisibility(View.VISIBLE);
 
-        TextView securitystrike = rootView.findViewById(R.id.securitydetv);
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         fuser = mAuth.getCurrentUser();
 
         securitystrike.setPaintFlags(securitystrike.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
-        ImageView image = rootView.findViewById(R.id.carimagebd);
-        TextView sitelocation = rootView.findViewById(R.id.locationtv);
-        Chip fuelchip = rootView.findViewById(R.id.fueltypechip);
-        ImageView mapicon = rootView.findViewById(R.id.mapicon);
-        TextView cartitle = rootView.findViewById(R.id.carnametitle);
-        MaterialCheckBox creditbox = rootView.findViewById(R.id.creditcheckbox);
 
 
         Picasso.get().load(carurl).into(image);
-
         sitelocation.setText(carlocation);
-        fuelchip.setText(fueltype);
-        cartitle.setText(carname);
 
         creditbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -185,8 +189,9 @@ public class BookingDetails extends Fragment {
         });
 
 
-        //TextInputLayout til = (TextInputLayout) requireActivity().findViewById(R.id.payusingbtn);
-        AppBarLayout appbarlay = requireActivity().findViewById(R.id.appbarlay);
+        appbarlay.setExpanded(false);
+        ViewCompat.setNestedScrollingEnabled(nsv, false);
+
         NavHostFragment navHostFragment =
                 (NavHostFragment) requireActivity().getSupportFragmentManager()
                         .findFragmentById(R.id.nav_host_fragment2);

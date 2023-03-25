@@ -35,7 +35,7 @@ public class DataDisplayActivity extends AppCompatActivity {
         long date2 = sh_get.getLong("dropoffDate",2);
         float time1 = sh_get.getFloat("pickupTime",-1);
         float time2 = sh_get.getFloat("dropoffTime",-1);
-        String a = "",b= "";
+        String a = "", b= "";
         String datetext = sh_get.getString("headerText","");
 
 
@@ -91,21 +91,26 @@ public class DataDisplayActivity extends AppCompatActivity {
         }
         else if(time1==16){
             a= "4 PM";
-        } else if(time1==17){
+        }
+        else if(time1==17){
             a= "5 PM";
         }
         else if(time1==18){
             a= "6 PM";
-        } else if(time1==19){
+        }
+        else if(time1==19){
             a= "7 PM";
-        } else if(time1==20){
+        }
+        else if(time1==20){
             a= "8 PM";
-        } else if(time1==21){
+        }
+        else if(time1==21){
             a= "9 PM";
         }
         else if(time1==22){
             a= "10 PM";
-        } else if(time1==23){
+        }
+        else if(time1==23){
             a= "11 PM";
         }
 
@@ -160,21 +165,26 @@ public class DataDisplayActivity extends AppCompatActivity {
         }
         else if(time2==16){
             b= "4 PM";
-        } else if(time2==17){
+        }
+        else if(time2==17){
             b= "5 PM";
         }
         else if(time2==18){
             b= "6 PM";
-        } else if(time2==19){
+        }
+        else if(time2==19){
             b= "7 PM";
-        } else if(time2==20){
+        }
+        else if(time2==20){
             b= "8 PM";
-        } else if(time2==21){
+        }
+        else if(time2==21){
             b= "9 PM";
         }
         else if(time2==22.0){
             b= "10 PM";
-        } else if(time2==23){
+        }
+        else if(time2==23){
             b= "11 PM";
         }
 

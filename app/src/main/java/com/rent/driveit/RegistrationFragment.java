@@ -170,7 +170,7 @@ public class RegistrationFragment extends Fragment {
             }
 
             @Override
-            public void onVerificationFailed(FirebaseException e) {
+            public void onVerificationFailed(@NonNull FirebaseException e) {
                 //binding.progressBar.setVisibility(View.GONE);
                 regbtn.setVisibility(View.VISIBLE);
                 Toast.makeText(requireActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();

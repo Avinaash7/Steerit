@@ -5,10 +5,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description">Hello blank fragment fbefvj </string>
-    <string name="date_display">Date: %1$s</string>
-    <string name="time_display">Time: %1$s - %2$s</string>
+    <string name="date_display">&#160; %1$s</string>
+    <string name="time_display">&#160; %1$s - %2$s</string>
 
     <string name="text_with_bullet">Text with a \u2022</string>
+
+    <string name="facebook_app_id">1198007247742351</string>
+    <string name="fb_login_protocol_scheme">fb1198007247742351</string>
+    <string name="facebook_client_token">9f646991d1d494c770bf8c187828a38a</string>
 
 
     <string-array name="Locations">

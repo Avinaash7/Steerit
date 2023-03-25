@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView
+    android:background="#ECEFF1"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +8,6 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
@@ -15,77 +15,30 @@
 
 
         <LinearLayout
-            android:weightSum="2"
+            android:background="#424242"
             android:id="@+id/toplayout"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:id="@+id/carnametitle"
-                    android:layout_width="match_parent"
-                    android:text="Skoda Octavia"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_height="wrap_content"/>
-                <com.google.android.material.chip.ChipGroup
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:layout_height="wrap_content">
-                    <com.google.android.material.chip.Chip
-                        android:layout_width="wrap_content"
-
-                        android:text="Unlimited Kms"
-                        android:textSize="10sp"
-                        android:layout_height="wrap_content"/>
-                    <com.google.android.material.chip.Chip
-                        android:layout_width="wrap_content"
-                        android:text="No Fuel"
-                        android:id="@+id/fueltypechip"
-                        android:textSize="10sp"
-                        android:layout_height="wrap_content"/>
-                </com.google.android.material.chip.ChipGroup>
-
-
-            </LinearLayout>
-
             <ImageView
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
                 android:id="@+id/carimagebd"
-                android:layout_weight="1"
-                android:layout_marginEnd="-40dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:src="@drawable/car"
-                android:layout_height="150dp"/>
+                android:layout_height="200dp"/>
 
 
         </LinearLayout>
 
-        <com.google.android.material.divider.MaterialDivider
-            android:layout_width="match_parent"
-            app:dividerColor="#D3D3D3"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/toplayout"
-            />
 
         <LinearLayout
-            android:layout_below="@+id/toplayout"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
+                android:layout_marginTop="5dp"
                 android:layout_marginStart="7dp"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
@@ -93,24 +46,55 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/montserratsemibold"
                 android:layout_height="wrap_content"/>
-            <TextView
+            <androidx.cardview.widget.CardView
+                android:backgroundTint="@color/smokyWhite"
+                app:cardElevation="5dp"
                 android:layout_marginTop="5dp"
+                app:cardCornerRadius="5dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:fontFamily="@font/montserratlight"
-                android:textSize="18sp"
-                android:text="  22nd Jan - 24th Jan 4PM - 9PM"
-                android:layout_height="wrap_content"
-                app:drawableStartCompat="@drawable/ic_baseline_calendar_month_24" />
-
-
-
-            <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
-                app:dividerColor="#D3D3D3"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/montserratregular"
+                        android:textSize="18sp"
+                        android:text="  22nd Jan - 24th Jan"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_baseline_calendar_month_24" />
+
+                    <TextView
+
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/montserratregular"
+                        android:textSize="18sp"
+                        android:text="  4PM - 9PM"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_baseline_access_time_24" />
+
+
+                </LinearLayout>
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:layout_marginStart="7dp"
@@ -129,6 +113,7 @@
                 android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
+                    android:backgroundTint="@color/smokyWhite"
                     android:layout_width="match_parent"
                     android:layout_weight="0.5"
                     app:cardElevation="5dp"
@@ -142,11 +127,10 @@
                     <TextView
                         android:gravity="center"
                         android:id="@+id/locationtv"
-                        android:layout_margin="5dp"
                         android:textColor="@color/black"
                         android:layout_width="match_parent"
-                        android:fontFamily="@font/montserratlight"
-                        android:textSize="18sp"
+                        android:fontFamily="@font/montserratregular"
+                        android:textSize="15sp"
                         android:text="Arani Main Road, Sathumadurai, Tamil Nadu 632011"
                         android:layout_height="match_parent"
                         />
@@ -168,6 +152,7 @@
                     android:layout_height="match_parent">
 
                     <LinearLayout
+                        android:background="@color/smokyWhite"
                         android:layout_width="match_parent"
                         android:gravity="center"
                         android:layout_height="match_parent"
@@ -180,11 +165,12 @@
                             android:layout_height="wrap_content"/>
 
                         <TextView
+                            android:textColor="@color/black"
                             android:layout_marginStart="3dp"
                             android:layout_gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Map"
+                            android:text="Route"
                             />
 
                     </LinearLayout>
@@ -210,6 +196,9 @@
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:layout_width="match_parent"
                 android:text="VIT Vellore"
+                app:buttonTint="#1976D2"
+                android:checked="true"
+                android:background="@color/smokyWhite"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -218,8 +207,11 @@
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:layout_width="match_parent"
+                app:buttonTint="#1976D2"
+                android:background="@color/smokyWhite"
+                app:useMaterialThemeColors="true"
                 android:text="Site Location"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:textColor="@color/black"
@@ -233,6 +225,66 @@
                 android:text="Car Will be delivered to this location. Accurate location will be given few minutes before pickup time"
                 android:layout_height="wrap_content"/>
 
+            <TextView
+                android:layout_marginStart="7dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:text="Kilometer"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserratsemibold"
+                android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="5dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/smokyWhite"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                app:cardElevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:textSize="18sp"
+                        android:layout_marginStart="10dp"
+                        android:text="  80 Kms Free"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_baseline_directions_car_24" />
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:textSize="18sp"
+                        android:layout_marginStart="10dp"
+                        android:text="  8₹ for every extra Kilometer"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_baseline_currency_rupee_24" />
+
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="3dp"
+                        android:text="The host will collect the extras in person after the submission of the car"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="5dp"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:layout_marginStart="7dp"
@@ -244,43 +296,72 @@
                 android:fontFamily="@font/montserratsemibold"
                 android:layout_height="wrap_content"/>
 
-            <TextView
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="5dp"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:textSize="18sp"
+                android:backgroundTint="@color/smokyWhite"
+                android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
-                android:text="  Driving License Mandatory"
-                android:layout_height="wrap_content"
-                app:drawableStartCompat="@drawable/ic_baseline_perm_identity_24" />
-
-            <TextView
-                android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:textSize="18sp"
-                android:layout_marginStart="10dp"
-                android:text="  College ID Card If Student"
-                android:layout_height="wrap_content"
-                app:drawableStartCompat="@drawable/ic_baseline_perm_identity_24" />
-
-            <TextView
-                android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:textSize="18sp"
-                android:layout_marginStart="10dp"
-                android:text="  Cancellation Policy"
-                android:layout_height="wrap_content"
-                app:drawableStartCompat="@drawable/ic_baseline_cancel_presentation_24" />
-
-            <TextView
+                app:cardElevation="5dp"
                 android:layout_width="match_parent"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="3dp"
-                android:text="Free Cancellation 2 hours prior pickup time."
-                android:textColor="@color/black"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:textSize="18sp"
+                        android:layout_marginStart="10dp"
+                        android:text="  Driving License Mandatory"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_baseline_perm_identity_24" />
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:textSize="18sp"
+                        android:layout_marginStart="10dp"
+                        android:text="  College ID Card If Student"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_baseline_perm_identity_24" />
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:textSize="18sp"
+                        android:layout_marginStart="10dp"
+                        android:text="  Cancellation Policy"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_baseline_cancel_presentation_24" />
+
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="3dp"
+                        android:text="Free Cancellation 2 hours prior pickup time."
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="5dp"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
 
 
             <com.google.android.material.divider.MaterialDivider
@@ -313,12 +394,17 @@
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:layout_width="match_parent"
+                        app:buttonTint="#1976D2"
+                        android:checked="true"
+                        android:background="@color/smokyWhite"
                         android:text="Submit Physical College ID Card to the Host"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content"/>
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:layout_width="match_parent"
+                        app:buttonTint="#1976D2"
+                        android:background="@color/smokyWhite"
                         android:text="Refundable Amount (3000 ₹)"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content"/>
@@ -354,6 +440,8 @@
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/creditcheckbox"
+                        app:buttonTint="@color/black"
+                        android:background="@color/smokyWhite"
                         android:layout_width="match_parent"
                         android:text="Use your ₹100 Steer Credits"
                         android:textColor="@color/black"
@@ -379,6 +467,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_margin="8dp"
+                android:backgroundTint="@color/smokyWhite"
                 app:cardElevation="5dp"
                 app:cardCornerRadius="5dp"
                 android:layout_width="match_parent"
@@ -398,19 +487,23 @@
                             android:textSize="18sp"
                             android:layout_width="wrap_content"
                             android:text="Trip Fare"
+                            android:textColor="@color/black"
                             android:layout_marginStart="10dp"
                             android:layout_height="wrap_content"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:text="₹ 1200"
                             android:textSize="18sp"
+                            android:textColor="@color/black"
                             android:gravity="end"
                             android:layout_marginEnd="10dp"
                             android:layout_height="wrap_content"/>
 
 
                     </LinearLayout>
+
                     <LinearLayout
+                        android:id="@+id/cardeliverylayout"
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:orientation="horizontal"
@@ -419,12 +512,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:textSize="18sp"
+                            android:textColor="@color/black"
                             android:text="Car Delivery Fee"
                             android:layout_marginStart="10dp"
                             android:layout_height="wrap_content"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:text="₹ 200"
+                            android:textColor="@color/black"
                             android:gravity="end"
                             android:textSize="18sp"
                             android:layout_marginEnd="10dp"
@@ -434,6 +529,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/securitylayout"
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:orientation="horizontal"
@@ -443,11 +539,13 @@
                             android:layout_width="wrap_content"
                             android:textSize="18sp"
                             android:text="Security Deposit"
+                            android:textColor="@color/black"
                             android:layout_marginStart="10dp"
                             android:layout_height="wrap_content"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:text="₹ 3000"
+                            android:textColor="@color/black"
                             android:id="@+id/securitydetv"
                             android:gravity="end"
                             android:textSize="18sp"
@@ -467,12 +565,14 @@
                             android:layout_width="wrap_content"
                             android:text="Convenience Fee"
                             android:textSize="18sp"
+                            android:textColor="@color/black"
                             android:layout_marginStart="10dp"
                             android:layout_height="wrap_content"/>
                         <TextView
                             android:layout_width="match_parent"
-                            android:text="Rs 70"
+                            android:text="₹ 70"
                             android:gravity="end"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
                             android:layout_marginEnd="10dp"
                             android:layout_height="wrap_content"/>
@@ -496,15 +596,17 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:text="Total Fare"
+                            android:textColor="@color/black"
                             android:textSize="18sp"
                             android:layout_marginStart="10dp"
                             android:layout_height="wrap_content"/>
                         <TextView
                             android:layout_width="match_parent"
-                            android:text="Rs 1270"
+                            android:text="₹ 1270"
                             android:gravity="end"
                             android:textSize="18sp"
                             android:layout_marginEnd="10dp"
+                            android:textColor="@color/black"
                             android:layout_height="wrap_content"/>
 
 

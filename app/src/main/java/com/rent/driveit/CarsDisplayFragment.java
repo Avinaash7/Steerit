@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuProvider;
+import androidx.core.view.ViewCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -83,13 +85,16 @@ public class CarsDisplayFragment extends Fragment {
         CollapsingToolbarLayout collapsingview = requireActivity().findViewById(R.id.collapsingtl);
         LinearLayout btmpay = requireActivity().findViewById(R.id.fixedbtmpay);
 
-        // NestedScrollView nsv = requireActivity().findViewById(R.id.nestedscrll);
+        NestedScrollView nsv = requireActivity().findViewById(R.id.nestedscrll);
         AppBarLayout abl = requireActivity().findViewById(R.id.appbarlay);
         Toolbar toolb = requireActivity().findViewById(R.id.toolbarx);
-        //ViewCompat.setNestedScrollingEnabled(nsv, true);
+
 
         btmpay.setVisibility(View.GONE);
         collapsingview.setTitle("Pick a Car");
+
+
+        ViewCompat.setNestedScrollingEnabled(nsv, true);
 
 
 
@@ -148,12 +153,12 @@ public class CarsDisplayFragment extends Fragment {
         });
 
         RecyclerView mCarsView =rootView.findViewById(R.id.carsrv);
-        mCarsView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mCarsView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         FirebaseRecyclerOptions<CarDetailsModel> options =
                 new FirebaseRecyclerOptions.Builder<CarDetailsModel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("CarDetails"),CarDetailsModel.class)
                         .build();
-        mAdapter = new CarDisplayAdapter(options,getActivity());
+        mAdapter = new CarDisplayAdapter(options,requireActivity());
         mAdapter.notifyDataSetChanged();
         mCarsView.setAdapter(mAdapter);
 

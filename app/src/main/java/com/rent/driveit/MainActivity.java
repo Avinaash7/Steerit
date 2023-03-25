@@ -215,13 +215,11 @@ public class MainActivity extends AppCompatActivity  {
             case R.id.nav_home:
                 navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
                 navController.navigate(R.id.home);
-
                 break;
 
             case R.id.nav_login:
-
                 navigationView.getMenu().findItem(R.id.nav_login).setChecked(true);
-                navController.navigate(R.id.action_home_to_loginActivity);
+                navController.navigate(R.id.loginActivity);
                 
                 break;
                 

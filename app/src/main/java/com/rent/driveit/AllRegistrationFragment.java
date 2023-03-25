@@ -57,6 +57,9 @@ import java.util.Map;
  */
 public class AllRegistrationFragment extends Fragment {
 
+    private static final String TAG = "FacebookLogin";
+    private CallbackManager mCallbackManager;
+
     private FirebaseAuth mAuth;
     GoogleSignInAccount gaccount;
     NavController navController;
@@ -66,7 +69,6 @@ public class AllRegistrationFragment extends Fragment {
     private GoogleSignInClient mGoogleSignInClient;
     Bundle bundle;
     private FirebaseFunctions mFunctions;
-    CallbackManager mCallbackManager;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -122,7 +124,7 @@ public class AllRegistrationFragment extends Fragment {
 
         // Initialize Facebook Login button
         mCallbackManager = CallbackManager.Factory.create();
-        fbbtn.setReadPermissions("email", "public_profile");
+        fbbtn.setPermissions("email", "public_profile");
         fbbtn.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -338,6 +340,8 @@ public class AllRegistrationFragment extends Fragment {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(requireActivity(), "Authentication Successfull",
+                                    Toast.LENGTH_SHORT).show();
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp"
     app:cardCornerRadius="12dp">
 
     <LinearLayout
@@ -13,7 +14,6 @@
         android:orientation="vertical">
 
         <LinearLayout
-
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,9 +71,9 @@
 
 
                 <LinearLayout
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:weightSum="2"
-                    android:padding="5dp"
+                    android:padding="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -90,7 +90,7 @@
                             android:id="@+id/fuellimittv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Half Fuel"
+                            android:text="No Fuel but ikkks"
                             app:drawableStartCompat="@drawable/ic_baseline_sort_24" />
 
                         <TextView
@@ -100,11 +100,13 @@
                             app:drawableStartCompat="@drawable/ic_baseline_sort_24"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="6 Seater" />
+                            android:text="5 Seater" />
                     </LinearLayout>
 
                     <LinearLayout
-
+                        android:layout_gravity="end"
+                        android:gravity="end"
+                        android:foregroundGravity="right"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -151,9 +153,11 @@
 
                         <TextView
                             android:padding="5dp"
-                            android:fontFamily="@font/montserratregular"
+                            android:textColor="@color/smokyWhite"
+                            android:maxLines="1"
                             android:layout_width="match_parent"
-                            android:text="Pick-Up Outside College Available"
+                            android:textSize="12sp"
+                            android:text="Pick-Up Outside College"
                             android:layout_height="wrap_content"
                         />
 
@@ -165,8 +169,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:text="₹1200"
+                    android:layout_marginTop="-30dp"
                     android:gravity="center"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     android:fontFamily="@font/montserratsemibold"
                     android:layout_height="match_parent"/>
 
@@ -184,33 +189,10 @@
                 <ImageView
                     android:id="@+id/carimageiv"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="200dp"
                     app:srcCompat="@drawable/car" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_height="wrap_content">
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip1"
-                        android:textSize="10sp"
-                        android:layout_margin="3dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="5 Km away"/>
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip2"
-                        android:textSize="10sp"
-                        android:layout_margin="3dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Unlimited Kms"/>
-
-
-                </LinearLayout>
 
 
             </LinearLayout>
@@ -220,13 +202,15 @@
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
-            android:padding="5dp"
-            android:layout_margin="5dp"
+            android:backgroundTint="#b3e0dc"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:text="Continue"
+            android:layout_marginTop="-30dp"
             android:textColor="@color/black"
             android:id="@+id/continuebtn"
             style="?attr/materialButtonStyle"
-            android:layout_height="50dp"/>
+            android:layout_height="wrap_content"/>
 
 
 
