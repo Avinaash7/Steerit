@@ -25,6 +25,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -94,7 +97,9 @@ public class MainActivity extends AppCompatActivity  {
         navEmail = (TextView) headerView.findViewById(R.id.headerid);
         img = (ImageView) headerView.findViewById(R.id.profileimg);
 
-        FirebaseDynamicLinks.getInstance()
+        BottomNavigationView bottomappbar = (BottomNavigationView) findViewById(R.id.bottom_navigationbar);
+
+                FirebaseDynamicLinks.getInstance()
                 .getDynamicLink(getIntent())
                 .addOnSuccessListener(this, new OnSuccessListener<PendingDynamicLinkData>() {
                     @Override
@@ -143,6 +148,18 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
+
+
+         bottomappbar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                if(item.getItemId()==R.id.pool_in){
+            navController.navigate(R.id.carPoolFragment);
+        }
+                return true;
+            }
+        });
 
     }
 
@@ -258,12 +275,12 @@ public class MainActivity extends AppCompatActivity  {
                 break;
 
         }
-
-
-    // set the toolbar title
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(title);
         }
+
+    // set the toolbar title
+
 
 
         drawerLayout.closeDrawer(GravityCompat.START);

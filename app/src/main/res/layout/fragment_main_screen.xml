@@ -27,155 +27,155 @@
         app:sliderIndicatorUnselectedColor="#FFF"
         app:sliderScrollTimeInSec="1" />
 
-    <androidx.core.widget.NestedScrollView
+
+
+    <LinearLayout
+        android:background="#212121"
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:background="#212121"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_margin="20dp"
+            <TextView
+                android:gravity="center"
+                android:fontFamily="@font/montserratsemibold"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/smokyWhite"
+
+                android:textSize="25sp"
                 android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:text="Pick a Ride"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleButton"
+                app:selectionRequired="true"
+                app:checkedButton="@id/selfdrivebtn"
+                app:singleSelection="true"
+                android:weightSum="2"
+                android:padding="5dp"
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:gravity="center"
-                    android:fontFamily="@font/montserratsemibold"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="5dp"
-                    android:textColor="@color/smokyWhite"
-
-                    android:textSize="25sp"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:text="Pick a Ride"
-                    android:layout_height="wrap_content"/>
-
-                <com.google.android.material.button.MaterialButtonToggleGroup
-                    android:id="@+id/toggleButton"
-                    app:selectionRequired="true"
-                    app:checkedButton="@id/selfdrivebtn"
-                    app:singleSelection="true"
-                    android:weightSum="2"
-                    android:padding="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="wrap_content"
-                        android:id="@+id/selfdrivebtn"
-                        style="?attr/materialButtonOutlinedStyle"
-                        android:text="4 Wheels"
-                        android:drawableTop="@drawable/ic_baseline_car_rental_24"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/airport_btn"
-                        android:layout_width="wrap_content"
-                        android:drawableTop="@drawable/ic_baseline_bike_scooter_24"
-                        style="?attr/materialButtonOutlinedStyle"
-                        android:text="2 Wheels"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.button.MaterialButtonToggleGroup>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:hint="Location"
-                    app:startIconDrawable="@drawable/ic_baseline_my_location_24"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_height="wrap_content">
-
-                    <AutoCompleteTextView
-                        android:layout_margin="5dp"
-                        android:inputType="none"
-                        android:id="@+id/autoCompleteTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="VIT Vellore" />
-
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:hint="Date"
-                    app:startIconDrawable="@drawable/ic_baseline_calendar_month_24"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_height="wrap_content">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/datepicker"
-                        android:layout_margin="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:layout_margin="5dp"
-                    android:layout_width="match_parent"
-                    android:text="Pickup"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/montserratlight"
-                    android:layout_height="wrap_content"/>
-
-                <com.google.android.material.slider.Slider
-                    android:layout_margin="5dp"
-                    android:id="@+id/slidervpick"
-                    android:layout_height="wrap_content"
-                    app:values="@array/initial_slider_values"
-                    android:layout_width="match_parent"
-                    android:valueTo="23.0"
-                    app:labelBehavior="visible"
-                    android:stepSize="1.0" />
-                <TextView
-                    android:layout_margin="5dp"
-                    android:layout_width="match_parent"
-                    android:text="Drop-off"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/montserratlight"
-                    android:layout_height="wrap_content"/>
-                <com.google.android.material.slider.Slider
-                    android:valueFrom="0.0"
-                    app:labelBehavior="visible"
-                    android:layout_margin="5dp"
-                    android:value="22.0"
-                    android:id="@+id/slidervdrop"
-                    android:layout_height="wrap_content"
-                    app:values="@array/initial_slider_values"
-                    android:layout_width="match_parent"
-                    android:valueTo="23.0"
-                    android:stepSize="1.0" />
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.button.MaterialButton
-                    android:layout_width="match_parent"
-                    android:layout_margin="10dp"
-                    android:id="@+id/findcarbtn"
-                    style="?attr/materialIconButtonStyle"
-                    android:text="FIND RIDE"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/selfdrivebtn"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:text="Single Trip"
+                    android:drawableTop="@drawable/ic_baseline_east_24"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/airport_btn"
+                    android:layout_width="wrap_content"
+                    android:drawableTop="@drawable/ic_baseline_import_export_24"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:text="Round Trip"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:hint="From"
+                app:startIconDrawable="@drawable/ic_baseline_my_location_24"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:layout_margin="5dp"
+                    android:inputType="none"
+                    android:id="@+id/autoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="VIT Vellore" />
 
 
-            </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:hint="Destination"
+                app:startIconDrawable="@drawable/ic_baseline_my_location_24"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:layout_margin="5dp"
+                    android:inputType="none"
+                    android:id="@+id/destination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Chennai Airport" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:hint="Date"
+                app:startIconDrawable="@drawable/ic_baseline_calendar_month_24"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/datepicker"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:text="Pickup"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserratlight"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.slider.Slider
+                android:layout_margin="5dp"
+                android:id="@+id/slidervpick"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:valueTo="23.0"
+                app:labelBehavior="visible"
+                android:stepSize="1.0" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:id="@+id/findcarbtn"
+                style="?attr/materialIconButtonStyle"
+                android:text="FIND RIDE"
+                android:layout_height="wrap_content" />
+
+
+
         </LinearLayout>
+    </LinearLayout>
 
 
 
 
-    </androidx.core.widget.NestedScrollView>
+
 
 
 

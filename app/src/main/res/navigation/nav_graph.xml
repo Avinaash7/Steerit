@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_home_to_referEarnFragment"
             app:destination="@id/referEarnFragment" />
+        <action
+            android:id="@+id/action_home_to_carPoolFragment"
+            app:destination="@id/carPoolFragment" />
     </fragment>
     <activity
         android:id="@+id/dataDisplayActivity"
@@ -39,5 +42,18 @@
             android:id="@+id/action_referEarnFragment_to_loginActivity"
             app:destination="@id/loginActivity" />
     </fragment>
+    <fragment
+        android:id="@+id/carPoolFragment"
+        android:name="com.rent.driveit.CarPoolFragment"
+        android:label="CarPoolFragment" >
+        <action
+            android:id="@+id/action_carPoolFragment_to_createPoolBottomSheet"
+            app:destination="@id/createPoolBottomSheet" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPoolBottomSheet"
+        android:name="com.rent.driveit.CreatePoolBottomSheet"
+        android:label="fragment_create_pool_bottom_sheet"
+        tools:layout="@layout/fragment_create_pool_bottom_sheet" />
 
 </navigation>

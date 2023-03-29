@@ -55,7 +55,7 @@ public class MainScreen extends Fragment {
     long CurrentExactTimeInMillis;
     long todaystimeinmillisecond;
     Calendar calendar;
-    MaterialDatePicker<Pair<Long, Long>> materialdate;
+    MaterialDatePicker<Long> materialdate;
     SharedPreferences sharedPreferences;
     SharedPreferences sh_get;
 
@@ -118,7 +118,6 @@ public class MainScreen extends Fragment {
         MaterialButton btn = (MaterialButton) rootView.findViewById(R.id.findcarbtn);
 
         Slider slidervpick =(Slider)rootView.findViewById(R.id.slidervpick);
-        Slider slidervdrop =(Slider)rootView.findViewById(R.id.slidervdrop);
         AutoCompleteTextView datepickertv = (AutoCompleteTextView) rootView.findViewById(R.id.datepicker);
         MaterialButtonToggleGroup btn_togglegrp = (MaterialButtonToggleGroup) rootView.findViewById(R.id.toggleButton);
 
@@ -159,17 +158,16 @@ public class MainScreen extends Fragment {
         constraintbuilder.setStart(todaystimeinmillisecond);
         constraintbuilder.setEnd(december);
 
-        MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
+        MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
         builder.setTitleText("Select the Dates !");
 
         sh_get = requireActivity().getSharedPreferences("MySharedPref", MODE_PRIVATE);
         long date1 = sh_get.getLong("pickupDate",1);
-        long date2 = sh_get.getLong("dropoffDate",2);
+
         String datetext = sh_get.getString("headerText","");
 
-        if(date1!=1 && date2!=2){
-            Pair<Long,Long> p1 = new Pair<Long,Long>(date1,date2);
-            builder.setSelection(p1);
+        if(date1!=1 ){
+            builder.setSelection(date1);
             datepickertv.setText(datetext);
         }
 
@@ -188,18 +186,19 @@ public class MainScreen extends Fragment {
             }
         });
 
-        materialdate.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Pair<Long, Long>>() {
+        materialdate.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
             @Override
-            public void onPositiveButtonClick(Pair<Long, Long> selection) {
+            public void onPositiveButtonClick(Long selection) {
                 sharedPreferences = requireContext().getSharedPreferences("MySharedPref", MODE_PRIVATE);
 
                 datepickertv.setText(materialdate.getHeaderText());
                 SharedPreferences.Editor myEdit = sharedPreferences.edit();
                 myEdit.putString("headerText", materialdate.getHeaderText());
                 myEdit.apply();
-
             }
         });
+
+
 
         slidervpick.setLabelFormatter(new LabelFormatter() {
             @NonNull
@@ -257,61 +256,7 @@ public class MainScreen extends Fragment {
             }
         });
 
-        slidervdrop.setLabelFormatter(new LabelFormatter() {
-            @NonNull
-            @Override
-            public String getFormattedValue(float value) {
-                if(value == 0.0f)
-                    return "12 AM";
-                else if(value == 1.0f)
-                    return "1 AM";
-                else if(value == 2.0f)
-                    return "2 AM";
-                else if(value == 3.0f)
-                    return "3 AM";
-                else if(value == 4.0f)
-                    return "4 AM";
-                else if(value == 5.0f)
-                    return "5 AM";
-                else if(value == 6.0f)
-                    return "6 AM";
-                else if(value == 7.0f)
-                    return "7 AM";
-                else if(value == 8.0f)
-                    return "8 AM";
-                else if(value == 9.0f)
-                    return "9 AM";
-                else if(value == 10.0f)
-                    return "10 AM";
-                else if(value == 11.0f)
-                    return "11 AM";
-                else if(value == 12.0f)
-                    return "12 PM";
-                else if(value == 13.0f)
-                    return "1 PM";
-                else if(value == 14.0f)
-                    return "2 PM";
-                else if(value == 15.0f)
-                    return "3 PM";
-                else if(value == 16.0f)
-                    return "4 PM";
-                else if(value == 17.0f)
-                    return "5 PM";
-                else if(value == 18.0f)
-                    return "6 PM";
-                else if(value == 19.0f)
-                    return "7 PM";
-                else if(value == 20.0f)
-                    return "8 PM";
-                else if(value == 21.0f)
-                    return "9 PM";
-                else if(value == 22.0f)
-                    return "10 PM";
-                else if(value == 23.0f)
-                    return "11 PM";
-                return String.format(Locale.US, "%.0f", value);
-            }
-        });
+
 
         slidervpick.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
@@ -346,77 +291,25 @@ public class MainScreen extends Fragment {
 
                 sharedPreferences = requireContext().getSharedPreferences("MySharedPref", MODE_PRIVATE);
 
-                if(Objects.requireNonNull(materialdate.getSelection()).first == null){
+                if(materialdate.getSelection() == null){
                     Toast.makeText(getContext(),"Pick dates before proceeding",Toast.LENGTH_LONG).show();
                     Log.i("Error","Null");
                 }else{
                     Log.i(String.valueOf(materialdate.getSelection()),"Not Nullx");
-                    if(materialdate.getSelection().second==todaystimeinmillisecond){
 
-                        if(current_minute<30){
-                            if(slidervpick.getValue()<current_hour+2){
-                                Toast.makeText(getContext(), "Minimum 2 Hours Prior Booking", Toast.LENGTH_SHORT).show();
-
-                            }
-                            else if(slidervdrop.getValue()<slidervpick.getValue()+3){
-                                Toast.makeText(getContext(), "Minimum 3 Hours from Pick-up Time", Toast.LENGTH_SHORT).show();
-                            }
-                            else{
-                                bookingselection.setDropoffHour(slidervdrop.getValue());
-                                bookingselection.setPickupHour(slidervpick.getValue());
-                                bookingselection.setDropoffDateinMillis(materialdate.getSelection().second);
-                                bookingselection.setPickupDateInMillis(materialdate.getSelection().first);
-
-                                SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                                myEdit.putLong("pickupDate",materialdate.getSelection().first );
-                                myEdit.putLong("dropoffDate", materialdate.getSelection().second);
-                                myEdit.putFloat("pickupTime",slidervpick.getValue() );
-                                myEdit.putFloat("dropoffTime", slidervdrop.getValue());
-
-                                myEdit.apply();
-                                Navigation.findNavController(view).navigate(R.id.action_home_to_dataDisplayActivity);
-                            }
-                        }
-                        else {
-                            if(slidervpick.getValue()<=current_hour+2){
-                                Toast.makeText(getContext(), "Minimum 2 Hours Prior Booking", Toast.LENGTH_SHORT).show();
-                            }
-                            else if(slidervdrop.getValue()<slidervpick.getValue()+3){
-                                Toast.makeText(getContext(), "Minimum 3 Hours from Pick-up Time", Toast.LENGTH_SHORT).show();
-                            }
-                            else{
-                                bookingselection.setDropoffHour(slidervdrop.getValue());
-                                bookingselection.setPickupHour(slidervpick.getValue());
-                                bookingselection.setDropoffDateinMillis(materialdate.getSelection().second);
-                                bookingselection.setPickupDateInMillis(materialdate.getSelection().first);
-                                SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                                myEdit.putLong("pickupDate",materialdate.getSelection().first );
-                                myEdit.putLong("dropoffDate", materialdate.getSelection().second);
-                                myEdit.putFloat("pickupTime",slidervpick.getValue() );
-                                myEdit.putFloat("dropoffTime", slidervdrop.getValue());
-
-                                myEdit.apply();
-                                Navigation.findNavController(view).navigate(R.id.action_home_to_dataDisplayActivity);
-                            }
-                        }
-
-                    }
-                    else if(materialdate.getSelection().first==todaystimeinmillisecond){
+                    if(materialdate.getSelection()==todaystimeinmillisecond){
                         if(current_minute<30){
                             if(slidervpick.getValue()<current_hour+2){
                                 Toast.makeText(getContext(), "Minimum 2 Hours Prior Booking", Toast.LENGTH_SHORT).show();
 
                             }
                             else{
-                                bookingselection.setDropoffHour(slidervdrop.getValue());
+
                                 bookingselection.setPickupHour(slidervpick.getValue());
-                                bookingselection.setDropoffDateinMillis(materialdate.getSelection().second);
-                                bookingselection.setPickupDateInMillis(materialdate.getSelection().first);
+                                bookingselection.setPickupDateInMillis(materialdate.getSelection());
                                 SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                                myEdit.putLong("pickupDate",materialdate.getSelection().first );
-                                myEdit.putLong("dropoffDate", materialdate.getSelection().second);
+                                myEdit.putLong("pickupDate",materialdate.getSelection() );
                                 myEdit.putFloat("pickupTime",slidervpick.getValue() );
-                                myEdit.putFloat("dropoffTime", slidervdrop.getValue());
 
                                 myEdit.apply();
 
@@ -428,15 +321,12 @@ public class MainScreen extends Fragment {
                                 Toast.makeText(getContext(), "Minimum 2 Hours Prior Booking", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                bookingselection.setDropoffHour(slidervdrop.getValue());
+
                                 bookingselection.setPickupHour(slidervpick.getValue());
-                                bookingselection.setDropoffDateinMillis(materialdate.getSelection().second);
-                                bookingselection.setPickupDateInMillis(materialdate.getSelection().first);
+                                bookingselection.setPickupDateInMillis(materialdate.getSelection());
                                 SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                                myEdit.putLong("pickupDate",materialdate.getSelection().first );
-                                myEdit.putLong("dropoffDate", materialdate.getSelection().second);
+                                myEdit.putLong("pickupDate",materialdate.getSelection() );
                                 myEdit.putFloat("pickupTime",slidervpick.getValue() );
-                                myEdit.putFloat("dropoffTime", slidervdrop.getValue());
 
                                 myEdit.apply();
                                 Navigation.findNavController(view).navigate(R.id.action_home_to_dataDisplayActivity);
@@ -446,15 +336,11 @@ public class MainScreen extends Fragment {
                     }
 
                     else{
-                        bookingselection.setDropoffHour(slidervdrop.getValue());
                         bookingselection.setPickupHour(slidervpick.getValue());
-                        bookingselection.setDropoffDateinMillis(materialdate.getSelection().second);
-                        bookingselection.setPickupDateInMillis(materialdate.getSelection().first);
+                        bookingselection.setPickupDateInMillis(materialdate.getSelection());
                         SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                        myEdit.putLong("pickupDate",materialdate.getSelection().first );
-                        myEdit.putLong("dropoffDate", materialdate.getSelection().second);
+                        myEdit.putLong("pickupDate",materialdate.getSelection() );
                         myEdit.putFloat("pickupTime",slidervpick.getValue() );
-                        myEdit.putFloat("dropoffTime", slidervdrop.getValue());
 
                         myEdit.apply();
                         Navigation.findNavController(view).navigate(R.id.action_home_to_dataDisplayActivity);

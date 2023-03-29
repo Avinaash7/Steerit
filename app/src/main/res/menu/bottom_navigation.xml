@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.rent.driveit.BookingDetails">
+
+
+
+    <item
+        android:id="@+id/home_item"
+        android:title="Ride"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_directions_car_24"
+         />
+
+    <item
+        android:id="@+id/pool_in"
+        android:title="Car Pool"
+        android:enabled="true"
+        android:icon="@drawable/multipleusers"
+        />
+
+
+
+</menu>

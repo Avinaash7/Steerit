@@ -175,18 +175,25 @@ public class BookingDetails extends Fragment {
             }
         });
 
-        mDatabase.child("users").child(fuser.getUid()).child("credits").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
+        if(fuser != null){
+            mDatabase.child("users").child(fuser.getUid()).child("credits").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    }
+                    else {
+                        creditbox.setText(String.format("Use your ₹%s Steer credits",task.getResult().getValue()));
+                        Log.d("firebase", String.format("Use your ₹%s credit",task.getResult().getValue()));
+                    }
                 }
-                else {
-                    creditbox.setText(String.format("Use your ₹%s Steer credits",task.getResult().getValue()));
-                    Log.d("firebase", String.format("Use your ₹%s credit",task.getResult().getValue()));
-                }
-            }
-        });
+            });
+        }
+        else{
+            creditbox.setText("Login to use Steer Credits");
+        }
+
+
 
 
         appbarlay.setExpanded(false);
